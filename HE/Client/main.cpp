@@ -206,6 +206,7 @@ int main()
             end1 = high_resolution_clock::now();                 // 获取结束时间点
             duration = duration_cast<milliseconds>(end1 - end0); // 计算运行时间
             cout << "3. enc query && send enc query header:" << duration.count() / 1000.0 << " 秒" << endl;
+            cout << "enc query size(bytes):" << serializedData.size() << endl;
         }
         else if (phase == 2) // 发送query
         {
@@ -276,7 +277,7 @@ int main()
             end3 = high_resolution_clock::now();                 // 获取结束时间点
             duration = duration_cast<milliseconds>(end3 - end2); // 计算运行时间
             cout << "5. calculate enc answer && receive enc answer header:" << duration.count() / 1000.0 << " 秒" << endl;
-            cout << "接收到header, 解算结果为:answer_size:" << answer_size << "\tsketch_num:" << sketch_num << endl;
+            cout << "接收到header, 解算结果为:answer_size(bytes):" << answer_size << "\tsketch_num:" << sketch_num << endl;
             continue;
         }
         else if (phase == 4) // 接收enc answer && 解算 answer
